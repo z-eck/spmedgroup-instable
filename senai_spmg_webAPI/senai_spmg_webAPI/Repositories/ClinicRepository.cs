@@ -27,7 +27,6 @@ namespace senai_spmg_webAPI.Repositories
             if (updatedClinic.ClinicName != null)
             {
                 searchClinic.ClinicName = updatedClinic.ClinicName;
-
             }
 
             if (updatedClinic.ClinicAddress != null)

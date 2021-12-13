@@ -11,7 +11,7 @@ namespace senai_spmg_webAPI.Interfaces
 
         void Create(Patient newPatient);
 
-        void UpdateURL(int idSpecialty, Patient updatedPatient);
+        void UpdateURL(int idPatient, Patient updatedPatient);
 
         void Delete(int idPatient);
     }

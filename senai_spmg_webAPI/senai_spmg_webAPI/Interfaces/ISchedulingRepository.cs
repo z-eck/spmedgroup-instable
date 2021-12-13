@@ -7,7 +7,7 @@ namespace senai_spmg_webAPI.Interfaces
     {
         List<Scheduling> ReadAll();
 
-        List<Scheduling> ReadMine(int idUser);
+        List<Scheduling> ReadMine(int idUser, int idUserType);
 
         Scheduling SearchByID(int idScheduling);
 
