@@ -2,10 +2,8 @@
 using senai_spmg_webAPI.Contexts;
 using senai_spmg_webAPI.Domains;
 using senai_spmg_webAPI.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace senai_spmg_webAPI.Repositories
 {
@@ -193,7 +191,40 @@ namespace senai_spmg_webAPI.Repositories
 
         public void UpdateURL(int idScheduling, Scheduling updatedScheduling)
         {
-            throw new NotImplementedException();
+            Scheduling searchScheduling = context.Schedulings.Find(idScheduling);
+
+            if (updatedScheduling.IdPatientNavigation.PatientName != null)
+            {
+                searchScheduling.IdPatientNavigation.PatientName = updatedScheduling.IdPatientNavigation.PatientName;
+            }
+            if (updatedScheduling.IdMedicNavigation.MedicName != null)
+            {
+                searchScheduling.IdMedicNavigation.MedicName = updatedScheduling.IdMedicNavigation.MedicName;
+
+            }
+            if (updatedScheduling.IdMedicNavigation.MedicLastname != null)
+            {
+                searchScheduling.IdMedicNavigation.MedicLastname = updatedScheduling.IdMedicNavigation.MedicLastname;
+
+            }
+            if (updatedScheduling.SchedulingDateHour != null)
+            {
+                searchScheduling.SchedulingDateHour = updatedScheduling.SchedulingDateHour;
+
+            }
+            if (updatedScheduling.IdSituationNavigation.SituationDescription != null)
+            {
+                searchScheduling.IdSituationNavigation.SituationDescription = updatedScheduling.IdSituationNavigation.SituationDescription;
+            }
+
+            if (updatedScheduling.SchedulingDescription != null)
+            {
+                searchScheduling.SchedulingDescription = updatedScheduling.SchedulingDescription;
+            }
+
+            context.Schedulings.Update(updatedScheduling);
+
+            context.SaveChanges();
         }
     }
 }

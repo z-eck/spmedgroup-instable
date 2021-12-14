@@ -1,37 +1,62 @@
-﻿using senai_spmg_webAPI.Domains;
+﻿using senai_spmg_webAPI.Contexts;
+using senai_spmg_webAPI.Domains;
 using senai_spmg_webAPI.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace senai_spmg_webAPI.Repositories
 {
     public class UserTypeRepository : IUserTypeRepository
     {
+        readonly SPMGContext context = new();
         public void Create(Usertype newUserType)
         {
-            throw new NotImplementedException();
+            context.Usertypes.Add(newUserType);
+
+            context.SaveChanges();
         }
 
         public void Delete(int idUserType)
         {
-            throw new NotImplementedException();
+            context.Usertypes.Remove(SearchByID(idUserType));
+
+            context.SaveChanges();
         }
 
         public List<Usertype> ReadAll()
         {
-            throw new NotImplementedException();
+            return context.Usertypes
+                .Select(t => new Usertype
+                {
+                    IdUserType = t.IdUserType,
+                    UserTypeDescription = t.UserTypeDescription,
+                })
+                .ToList();
         }
 
         public Usertype SearchByID(int idUserType)
         {
-            throw new NotImplementedException();
+            return context.Usertypes
+                .Select(t => new Usertype
+                {
+                    IdUserType = t.IdUserType,
+                    UserTypeDescription = t.UserTypeDescription,
+                })
+                .FirstOrDefault(t => t.IdUserType == idUserType);
         }
 
         public void UpdateURL(int idUserType, Usertype updatedUserType)
         {
-            throw new NotImplementedException();
+            Usertype searchUserType = context.Usertypes.Find(idUserType);
+
+            if (updatedUserType.UserTypeDescription != null)
+            {
+                searchUserType.UserTypeDescription = updatedUserType.UserTypeDescription;
+
+                context.Usertypes.Update(searchUserType);
+
+                context.SaveChanges();
+            }
         }
     }
 }
