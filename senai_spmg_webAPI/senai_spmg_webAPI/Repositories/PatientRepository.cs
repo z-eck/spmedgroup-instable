@@ -86,13 +86,40 @@ namespace senai_spmg_webAPI.Repositories
             {
                 searchPatient.PatientName = updatedPatient.PatientName;
             }
+
             if (updatedPatient.BirthDate != null)
             {
                 searchPatient.BirthDate = updatedPatient.BirthDate;
             }
+
             if (updatedPatient.Cpf != null)
             {            
-                searchPatient.Cpf = updatedPatient.Cpf ;              
+                searchPatient.Cpf = updatedPatient.Cpf;              
+            }
+
+            if (updatedPatient.IdAddress != null)
+            {
+                searchPatient.IdAddress = updatedPatient.IdAddress;
+            }
+
+            if (updatedPatient.PhoneNumber != null)
+            {
+                searchPatient.PhoneNumber = updatedPatient.PhoneNumber;
+            }
+
+            if (updatedPatient.DddPhone != null)
+            {
+                searchPatient.DddPhone = updatedPatient.DddPhone;
+            }
+
+            if (updatedPatient.Rg != null)
+            {
+                searchPatient.Rg = updatedPatient.Rg;
+            }
+
+            if (updatedPatient.AddressNumber != null)
+            {
+                searchPatient.AddressNumber = updatedPatient.AddressNumber;
             }
 
             context.Patients.Update(searchPatient);

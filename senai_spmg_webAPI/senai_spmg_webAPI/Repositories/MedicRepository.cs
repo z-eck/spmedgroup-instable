@@ -91,6 +91,11 @@ namespace senai_spmg_webAPI.Repositories
                 searchMedic.Crm = updatedMedic.Crm;
             }
 
+            if (updatedMedic.IdSpecialty != null)
+            {
+                searchMedic.IdSpecialty = updatedMedic.IdSpecialty;
+            }
+
             context.Medics.Update(searchMedic);
 
             context.SaveChanges();

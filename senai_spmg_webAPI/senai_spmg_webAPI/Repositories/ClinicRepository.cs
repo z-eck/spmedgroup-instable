@@ -36,12 +36,12 @@ namespace senai_spmg_webAPI.Repositories
 
             if (updatedClinic.Cnpj != null)
             {
-                searchClinic.Cnpj = updatedClinic.Cnpj
+                searchClinic.Cnpj = updatedClinic.Cnpj;
             }
 
             if (updatedClinic.CorporateName != null)
             {
-                searchClinic.CorporateName = updatedClinic.CorporateName
+                searchClinic.CorporateName = updatedClinic.CorporateName;
             }
 
             context.Clinics.Update(searchClinic);
