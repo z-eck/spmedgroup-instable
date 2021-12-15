@@ -106,55 +106,6 @@ namespace senai_spmg_webAPI.Controllers
 
         }
 
-        [Authorize(Roles = "3")]
-        [HttpPatch("ChangeDescription/{id}")]
-        public IActionResult ChangeDescription(Scheduling scheduling, int id)
-        {
-            try
-            {
-                Scheduling searchScheduling = schdlngRepository.SearchByID(id);
-                int idMedic = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
-                if (scheduling.SchedulingDescription == null)
-                {
-                    return BadRequest(new
-                    {
-                        Mensagem = "É necessário informar a descrição!"
-                    });
-                }
-
-                if (schdlngRepository.SearchByID(id) == null || id <= 0)
-                {
-                    return NotFound(new
-                    {
-                        Mensagem = "Não há nenhuma consulta com o ID informado!"
-                    });
-                }
-
-                if (searchScheduling.IdMedic != idMedic)
-                {
-                    return BadRequest(new
-                    {
-                        Mensagem = "Apenas o médico designado ao agendamento é capaz de alterar a descrição."
-                    });
-                }
-                schdlngRepository.ChangeDescription(scheduling.SchedulingDescription, id); // <--
-                return StatusCode(200, new
-                {
-                    Mensagem = "A descrição da consulta foi alterada com sucesso!",
-                    searchScheduling
-                });
-            }
-            catch (Exception error)
-            {
-
-                return BadRequest(new
-                {
-                    Message = "Não foi possível alterar a descrição do agendamento!",
-                    error
-                });
-            }
-        }
-
         [Authorize(Roles = "1")]
         [HttpPatch("situation/{idSituation}")]
         public IActionResult ChangeSituation(int id, Scheduling situation)
