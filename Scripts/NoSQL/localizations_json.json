@@ -1,0 +1,35 @@
+{
+        "_id" : ObjectId("61bb81e5d26112882202528b"),
+        "latitude" : "-23.594428",
+        "longitude" : "-46.6431736"
+}
+{
+        "_id" : ObjectId("61bb823ed26112882202528c"),
+        "latitude" : "-23.5615122",
+        "longitude" : "-46.658155"
+}
+{
+        "_id" : ObjectId("61bb828bd26112882202528d"),
+        "latitude" : "-23.6085638",
+        "longitude" : "-46.668804"
+}
+{
+        "_id" : ObjectId("61bb82dbd26112882202528e"),
+        "latitude" : "-23.5075523",
+        "longitude" : "-46.878984"
+}
+{
+        "_id" : ObjectId("61bb8344d26112882202528f"),
+        "latitude" : "-23.6986233",
+        "longitude" : "-46.3985271"
+}
+{
+        "_id" : ObjectId("61bb83a6d261128822025290"),
+        "latitude" : "-23.604772",
+        "longitude" : "-46.6674695"
+}
+{
+        "_id" : ObjectId("61bb83fad261128822025291"),
+        "latitude" : "-23.4984024",
+        "longitude" : "-46.8904015"
+}

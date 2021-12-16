@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using senai_spmg_webAPI.Domains;
 using senai_spmg_webAPI.Interfaces;
 using senai_spmg_webAPI.Repositories;
+using System;
 
 namespace senai_spmg_webAPI.Controllers
 {
@@ -21,23 +22,57 @@ namespace senai_spmg_webAPI.Controllers
         [HttpGet]
         public IActionResult Read()
         {
-            return Ok(clncRepository.ReadAll());
+            try
+            {
+                return Ok(clncRepository.ReadAll());
+            }
+            catch (Exception error)
+            {
+                return BadRequest(new
+                {
+                    Message = "Não foi possível listar as informações da clínica!",
+                    error
+                });
+            }
         }
 
         [Authorize(Roles = "1, 2")]
         [HttpGet("{id}")]
         public IActionResult SearchID(int id)
         {
-            return Ok(clncRepository.SearchByID(id));
+            try
+            {
+                return Ok(clncRepository.SearchByID(id));
+            }
+            catch (Exception error)
+            {
+                return BadRequest(new
+                {
+                    Message = "Não foi possível achar a clínica pelo ID!",
+                    error
+                });
+            }
         }
 
         [Authorize(Roles = "1")]
         [HttpPut("{id}")]
         public IActionResult UpdateURL(int id, Clinic updatedClinic)
         {
-            clncRepository.UpdateURL(id, updatedClinic);
+            try
+            {
+                clncRepository.UpdateURL(id, updatedClinic);
 
-            return StatusCode(204);
+                return StatusCode(204);
+            }
+            catch (Exception error)
+            {
+                return BadRequest(new
+                {
+                    Message = "Não foi possível atualizar as informações da clínica!",
+                    error
+                });
+            }
+            
         }
     }
 }

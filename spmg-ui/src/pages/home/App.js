@@ -1,5 +1,5 @@
 import './App.css';
-import Scheduling from '../scheduling/scheduling';
+import Login from '../login/login';
 
 function App() {
   return (
@@ -19,9 +19,9 @@ function App() {
         </a> */}
         <a
           className="App-link"
-          href={Scheduling}
+          href={Login}
           target="_blank"
-          rel="noopener noreferrer">Agendamentos</a>
+          rel="noopener noreferrer">/login</a>
       </header>
     </div>
   );

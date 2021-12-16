@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Component } from 'react';
 import { parseJwt } from '../../services/auth';
 
-import './login.css';
+import '../../assets/css/login.css';
 
 export default class Login extends Component {
     constructor(props){
@@ -36,7 +36,7 @@ export default class Login extends Component {
                 }
 
                 else {
-                    this.props.history.push('/agendamentos')
+                    this.props.history.push('/scheduling')
                 }
 
             }
@@ -56,9 +56,12 @@ export default class Login extends Component {
             <div>
                 <main className="main">
                     <div className="login">
+                        <div className="imageLogin">
+                            <div className="imageLoginColor"></div>
+                        </div>
                         <div className="logoLogin">
                         </div>
-                        <div className="loginLogin">
+                        {/* <div className="loginLogin"> */}
                             <section className="loginLogin">
                                 <form onSubmit={this.doLogin}>
                                     {/* <div className="email"> */}
@@ -89,7 +92,7 @@ export default class Login extends Component {
                                     <p style={{ color: '#ff2400' }}>{this.state.errorMessage}</p>
                                 </form>
                             </section>
-                        </div>
+                        {/* </div> */}
                     </div>
                 </main>
             </div>

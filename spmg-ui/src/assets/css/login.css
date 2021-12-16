@@ -1,0 +1,21 @@
+html {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+.imageLogin {
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/background-login.png");
+}
+
+.loginLogin {
+    width: 50%;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+}

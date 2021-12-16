@@ -30,7 +30,7 @@ namespace senai_spmg_webAPI
                 options.AddPolicy("CorsPolicy",
                                 builder =>
                                 {
-                                    builder.WithOrigins("http://localhost:3000")
+                                    builder.WithOrigins("*")
                                     .AllowAnyHeader()
                                     .AllowAnyMethod();
                                 });
@@ -74,7 +74,7 @@ namespace senai_spmg_webAPI
                         ClockSkew = TimeSpan.FromMinutes(59),
                         
                         ValidIssuer = "senai_spmg_webAPI",
-                        
+
                         ValidAudience = "senai_spmg_webAPI"
                     };
                 });
