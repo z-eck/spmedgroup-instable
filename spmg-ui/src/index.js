@@ -5,7 +5,7 @@ import { parseJwt, authUser } from './services/auth';
 
 import './index.css';
 
-import Home from './pages/home/App';
+// import Home from './pages/home/App';
 import Login from './pages/login/login';
 import Scheduling from './pages/scheduling/scheduling';
 import NotFound from './pages/notfound/NotFound';
@@ -41,7 +41,7 @@ const routing = (
   <Router>
     <div>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Admin} />
         <UserPermission path="/scheduling" component={Scheduling}/>
         <Route path="/login" component={Login} />
         <Route path="/notfound" component={NotFound} />
